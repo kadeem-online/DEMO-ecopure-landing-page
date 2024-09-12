@@ -1,0 +1,23 @@
+#page-footer {
+	.eco-container {
+		.content-group {
+			@apply text-base gap-5 grid grid-cols-1 max-w-screen-xs mx-auto;
+
+			.heading {
+				@apply text-lg font-bold uppercase;
+			}
+
+			> .content-block {
+				@apply flex flex-col gap-3 items-center text-center;
+
+				> ul {
+					@apply flex flex-col gap-2 items-center;
+
+					a:hover {
+						@apply underline underline-offset-4 text-accent-light;
+					}
+				}
+			}
+		}
+	}
+}

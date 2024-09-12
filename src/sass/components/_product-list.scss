@@ -1,0 +1,19 @@
+.product-list {
+	@apply gap-5;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(auto, 288px));
+	justify-content: center;
+	.product {
+		@apply max-w-72 mx-auto flex flex-col gap-4;
+		.product-image {
+			@apply rounded border-2 border-accent-light;
+		}
+
+		.product-details {
+			@apply flex flex-col gap-3;
+			.product-title {
+				@apply font-playfair-display font-semibold text-accent-light text-2xl;
+			}
+		}
+	}
+}

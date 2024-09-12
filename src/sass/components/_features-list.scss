@@ -1,0 +1,15 @@
+.feature-list {
+	@apply flex flex-row flex-wrap gap-5 justify-center items-stretch;
+	.feature-card {
+		@apply w-full max-w-80 p-4 flex flex-col gap-3 items-center bg-gradient-to-b from-secondary-light to-secondary-base rounded border-2 border-secondary-dark;
+		.feature-icon {
+			@apply size-24;
+		}
+		.feature-title {
+			@apply text-xl font-bold text-primary-light text-center;
+		}
+		.feature-description {
+			@apply text-primary-base text-sm text-center;
+		}
+	}
+}
