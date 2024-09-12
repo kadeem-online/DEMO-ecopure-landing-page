@@ -5,6 +5,9 @@ const config: Config = {
 	content: ["./index.html"],
 	theme: {
 		extend: {
+			screens: {
+				xs: "480px",
+			},
 			container: {
 				center: true,
 				padding: "20px",
