@@ -4,7 +4,7 @@ import "simplebar/dist/simplebar.min.css";
 import ResizeObserver from "resize-observer-polyfill";
 
 // Lenis
-import Lenis from "lenis";
+import Lenis, { EasingFunction } from "lenis";
 import "lenis/dist/lenis.css";
 
 // GSAP
@@ -121,6 +121,80 @@ function SETUP_pageContentCustomScrollbar(): SimpleBar | null {
 	}
 }
 
+function INT_scrollToSection(target: HTMLElement) {
+	try {
+		target.scrollIntoView({
+			behavior: "smooth",
+		});
+	} catch (error) {
+		console.error("SCROLL FAILURE: ", error);
+	}
+}
+
+function HANDLER_onPageLinkNavigation(link: Element) {
+	try {
+		const target_id = link.getAttribute("href")?.substring(1);
+		if (target_id === undefined) {
+			throw new TypeError(
+				`link must have a value assigned to it's href attribute'`
+			);
+		}
+
+		const target_element = document.getElementById(target_id);
+		if (target_element === null) {
+			throw new TypeError(
+				"target_element cannot be null, must be a valid HTMLElement."
+			);
+		}
+
+		INT_scrollToSection(target_element);
+
+		return;
+	} catch (error) {
+		console.log("FAILED ON PAGE SCROLL: ", error);
+	}
+}
+
+function SETUP_mobileMenuLinkClick() {
+	const links = document.querySelectorAll(
+		"nav#mobile-navigation .nav-list .nav-link"
+	);
+
+	links.forEach((link, key, parent) => {
+		link.addEventListener("click", (event) => {
+			event.preventDefault();
+			HANDLER_onPageLinkNavigation(link);
+			INT_closeMobileMenu();
+		});
+	});
+}
+
+function SETUP_footerMenuLinkClick() {
+	const links = document.querySelectorAll(
+		"footer#page-footer .footer-menu-list .nav-link"
+	);
+
+	links.forEach((link, key, parent) => {
+		link.addEventListener("click", (event) => {
+			event.preventDefault();
+			HANDLER_onPageLinkNavigation(link);
+		});
+	});
+}
+
+function SETUP_heroCTALinkClick() {
+	const link = document.getElementById("hero-cta");
+
+	if (link === null) {
+		return;
+	}
+
+	link.addEventListener("click", (event) => {
+		event.preventDefault();
+		HANDLER_onPageLinkNavigation(link);
+	});
+}
+
 function onDomContentLoaded() {
 	GLOBALS.mobile_navigation_container =
 		document.getElementById("mobile-navigation-menu") || undefined;
@@ -136,6 +210,11 @@ function onDomContentLoaded() {
 
 	// SETUP LENIS
 	GLOBALS.lenis = SETUP_pageSmoothScroll() || undefined;
+
+	// SETUP ON PAGE LINKS NAVIGATION
+	SETUP_heroCTALinkClick();
+	SETUP_mobileMenuLinkClick();
+	SETUP_footerMenuLinkClick();
 
 	return;
 }

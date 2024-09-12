@@ -21,7 +21,6 @@
 				class="fixed top-0 left-0 z-[200] w-full h-dvh min-h-screen bg-primary-light/50 p-5 hidden aria-expanded:flex flex-col transition-all"
 			>
 				<div
-					data-simplebar
 					class="wrapper min-h-full p-5 border-4 border-primary-dark bg-gradient-to-b from-primary-light/80 to-primary-base/80 rounded backdrop-blur-sm relative"
 				>
 					<div class="min-h-full flex flex-col gap-5 relative">
@@ -46,11 +45,25 @@
 							</p>
 							<nav id="mobile-navigation">
 								<ul class="nav-list flex flex-col gap-4 items-center">
-									<li><a href="#hero-section">Home</a></li>
-									<li><a href="#about-section">About</a></li>
-									<li><a href="#products-section">Products</a></li>
-									<li><a href="#commitment-section">Commitment</a></li>
-									<li><a href="#newsletter-section">Newsletter</a></li>
+									<li>
+										<a class="nav-link" href="#hero-section">Home</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#about-section">About</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#products-section">Products</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#commitment-section">
+											Commitment
+										</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#newsletter-section">
+											Newsletter
+										</a>
+									</li>
 								</ul>
 							</nav>
 						</div>
@@ -108,7 +121,8 @@
 							are.
 						</p>
 						<a
-							href="#products"
+							id="hero-cta"
+							href="#products-section"
 							class="hero-cta py-1 px-5 bg-accent-base w-fit border border-primary-dark hover:bg-accent-dark"
 						>
 							<span class="label font-semibold">Explore Our Products</span>
@@ -400,11 +414,25 @@
 							<div class="footer-menu-block content-block">
 								<p class="heading">Menu</p>
 								<ul class="footer-menu-list">
-									<li><a href="#hero-section">Home</a></li>
-									<li><a href="#about-section">About</a></li>
-									<li><a href="#products-section">Products</a></li>
-									<li><a href="#commitment-section">Commitment</a></li>
-									<li><a href="#newsletter-section">Newsletter</a></li>
+									<li>
+										<a class="nav-link" href="#hero-section">Home</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#about-section">About</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#products-section">Products</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#commitment-section">
+											Commitment
+										</a>
+									</li>
+									<li>
+										<a class="nav-link" href="#newsletter-section">
+											Newsletter
+										</a>
+									</li>
 								</ul>
 							</div>
 							<div class="socials-menu-block content-block">
@@ -424,6 +452,7 @@
 								<a
 									href="https://kadeem.online"
 									class="underline underline-offset-4"
+									target="_blank"
 									>Kadeem</a
 								>
 							</p>
