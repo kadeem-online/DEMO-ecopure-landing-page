@@ -1,9 +1,17 @@
+// Simplebar
+import SimpleBar from "simplebar";
+import "simplebar/dist/simplebar.min.css";
+import ResizeObserver from "resize-observer-polyfill";
+
 import "./sass/main.scss";
 
 type GlobalVariablesBlueprint = {
 	mobile_navigation_container?: HTMLElement;
 };
 const GLOBALS: GlobalVariablesBlueprint = {};
+
+// Add resize observer polyfill
+window.ResizeObserver = ResizeObserver;
 
 function INT_openMobileMenu() {
 	if (GLOBALS.mobile_navigation_container === undefined) {
@@ -47,6 +55,23 @@ function SETUP_mobileMenuCloseListeners() {
 	return;
 }
 
+function SETUP_mobileMenuCustomScrollbar(): SimpleBar | null {
+	const mobile_menu = document.querySelector(
+		"#mobile-navigation-menu > .wrapper"
+	);
+
+	if (mobile_menu === null) {
+		return null;
+	}
+
+	try {
+		const simplebar = new SimpleBar(mobile_menu as HTMLElement, {});
+		return simplebar;
+	} catch (error) {
+		return null;
+	}
+}
+
 function onDomContentLoaded() {
 	GLOBALS.mobile_navigation_container =
 		document.getElementById("mobile-navigation-menu") || undefined;
@@ -54,6 +79,9 @@ function onDomContentLoaded() {
 	// SETUP LISTENERS FOR MOBILE MENU CLOSE AND OPEN
 	SETUP_mobileMenuOpenListeners();
 	SETUP_mobileMenuCloseListeners();
+
+	// SETUP CUSTOM SCROLLBARS
+	SETUP_mobileMenuCustomScrollbar();
 
 	return;
 }
