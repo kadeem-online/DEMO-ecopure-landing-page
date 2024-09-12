@@ -20,4 +20,37 @@
 			}
 		}
 	}
+
+	@media screen {
+		// Tablet Styles
+		@media (min-width: 768px) {
+			.eco-container {
+				.content-group {
+					@apply grid-cols-3 max-w-none;
+
+					> .content-block {
+						@apply text-left items-start;
+						> ul {
+							@apply items-start;
+						}
+					}
+
+					.branding-block {
+						@apply md:col-start-1 md:row-start-1;
+					}
+
+					.contact-block {
+						@apply md:col-start-1 md:row-start-2;
+					}
+
+					.footer-menu-block {
+						@apply md:col-start-2 md:row-start-2;
+					}
+					.socials-menu-block {
+						@apply md:col-start-3 md:row-start-2;
+					}
+				}
+			}
+		}
+	}
 }

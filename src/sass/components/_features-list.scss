@@ -6,10 +6,18 @@
 			@apply size-24;
 		}
 		.feature-title {
-			@apply text-xl font-bold text-primary-light text-center;
+			@apply text-xl font-bold text-primary-light/75 text-center;
 		}
 		.feature-description {
 			@apply text-primary-base text-sm text-center;
+		}
+	}
+
+	@media screen {
+		// Tablet Styles
+		@media (min-width: 768px) {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(220px, 300px));
 		}
 	}
 }

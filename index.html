@@ -29,7 +29,7 @@
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 24 24"
 								fill="currentColor"
-								class="size-8"
+								class="size-8 md:size-10"
 							>
 								<path
 									fill-rule="evenodd"
@@ -40,27 +40,49 @@
 						</button>
 
 						<div class="flex flex-col gap-5 items-center">
-							<p class="menu-title font-bold text-secondary-base text-2xl">
+							<p
+								class="menu-title font-bold text-secondary-base text-2xl md:text-3xl"
+							>
 								MENU
 							</p>
 							<nav id="mobile-navigation">
-								<ul class="nav-list flex flex-col gap-4 items-center">
+								<ul
+									class="nav-list flex flex-col gap-4 items-center text-lg md:text-xl uppercase font-bold text-secondary-base/75"
+								>
 									<li>
-										<a class="nav-link" href="#hero-section">Home</a>
+										<a
+											class="nav-link hover:text-secondary-base"
+											href="#hero-section"
+											>Home</a
+										>
 									</li>
 									<li>
-										<a class="nav-link" href="#about-section">About</a>
+										<a
+											class="nav-link hover:text-secondary-base"
+											href="#about-section"
+											>About</a
+										>
 									</li>
 									<li>
-										<a class="nav-link" href="#products-section">Products</a>
+										<a
+											class="nav-link hover:text-secondary-base"
+											href="#products-section"
+											>Products</a
+										>
 									</li>
 									<li>
-										<a class="nav-link" href="#commitment-section">
+										<a
+											class="nav-link hover:text-secondary-base"
+											href="#commitment-section"
+										>
 											Commitment
 										</a>
 									</li>
 									<li>
-										<a class="nav-link" href="#newsletter-section">
+										<a
+											class="nav-link hover:text-secondary-base"
+											href="#newsletter-section"
+										>
 											Newsletter
 										</a>
 									</li>
@@ -74,7 +96,7 @@
 			<main class="min-h-full">
 				<header
 					id="page-navbar"
-					class="sticky top-0 left-0 z-[100] bg-gradient-to-b from-primary-light to-primary-base py-5 border-b border-b-primary-dark shadow"
+					class="sticky top-0 left-0 z-[100] bg-gradient-to-b from-primary-light to-primary-base/75 py-3 border-b border-b-primary-dark backdrop-blur-sm shadow"
 				>
 					<div class="eco-container flex flex-row justify-between items-center">
 						<a href="#">
@@ -95,7 +117,7 @@
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 24 24"
 								fill="currentColor"
-								class="size-8"
+								class="size-8 md:size-10"
 							>
 								<path
 									fill-rule="evenodd"
@@ -112,10 +134,12 @@
 						id="hero-section-foreground"
 						class="eco-container relative z-50 py-20"
 					>
-						<h1 class="font-playfair-display font-bold text-4xl">
+						<h1
+							class="font-playfair-display font-bold text-4xl md:text-5xl max-w-screen-xs md:max-w-screen-sm"
+						>
 							Rediscover Natural Beauty with EcoPure Essentials
 						</h1>
-						<p class="sub-headline text-lg">
+						<p class="sub-headline text-lg max-w-screen-xs md:max-w-screen-sm">
 							Pure ingredients, sustainable practices, and effective
 							skincare—because your beauty routine should be as natural as you
 							are.
@@ -148,28 +172,41 @@
 
 				<section
 					id="about-section"
-					class="py-12 bg-gradient-to-b from-secondary-light to-secondary-dark text-primary-base"
+					class="bg-gradient-to-b from-secondary-light to-secondary-dark text-primary-base"
 				>
-					<div class="eco-container">
-						<h2 class="section-title text-primary-light">
-							Our Journey to Natural Skincare
-						</h2>
-						<p class="text">
-							At EcoPure Essentials, we believe that true beauty comes from the
-							harmony of nature and self-care. Our journey began with a simple
-							question: Why should skincare be complicated? Inspired by the
-							purity of nature, our founders set out to create a line of
-							skincare products that are not only effective but also kind to the
-							planet.
-						</p>
-						<p class="text">
-							From day one, we've been committed to using only the finest
-							natural ingredients. Our formulas are carefully crafted to nourish
-							and protect your skin, while our packaging reflects our dedication
-							to sustainability. We are more than just a skincare brand—we are a
-							movement towards mindful beauty. Join us on this journey to
-							rediscover what it means to feel naturally beautiful.
-						</p>
+					<div class="eco-container grid grid-cols-1 md:grid-cols-3">
+						<div class="visual-content hidden md:flex justify-center items-end">
+							<img
+								src="/about-image.png"
+								alt=""
+								srcset=""
+								width="340"
+								height="508"
+								id="about-image"
+								class="w-3/4 max-w-72"
+							/>
+						</div>
+						<div class="text-content py-12 flex flex-col gap-5 md:col-span-2">
+							<h2 class="section-title text-primary-light">
+								Our Journey to Natural Skincare
+							</h2>
+							<p class="text">
+								At EcoPure Essentials, we believe that true beauty comes from
+								the harmony of nature and self-care. Our journey began with a
+								simple question: Why should skincare be complicated? Inspired by
+								the purity of nature, our founders set out to create a line of
+								skincare products that are not only effective but also kind to
+								the planet.
+							</p>
+							<p class="text">
+								From day one, we've been committed to using only the finest
+								natural ingredients. Our formulas are carefully crafted to
+								nourish and protect your skin, while our packaging reflects our
+								dedication to sustainability. We are more than just a skincare
+								brand—we are a movement towards mindful beauty. Join us on this
+								journey to rediscover what it means to feel naturally beautiful.
+							</p>
+						</div>
 					</div>
 				</section>
 
@@ -279,12 +316,12 @@
 				</section>
 
 				<section id="commitment-section" class="py-12 bg-primary-base">
-					<div class="eco-container">
+					<div class="eco-container items-center md:text-center">
 						<h2 class="section-title text-accent-light">
 							Committed to a Greener Future
 						</h2>
 
-						<p class="text">
+						<p class="text md:max-w-screen-md">
 							At EcoPure Essentials, sustainability is at the heart of
 							everything we do. We believe that true beauty should never come at
 							the expense of our planet. That's why we are dedicated to
@@ -335,7 +372,7 @@
 							</li>
 						</ul>
 
-						<p class="text">
+						<p class="text md:max-w-screen-md">
 							We are constantly striving to improve our practices and set new
 							standards in the beauty industry. By choosing EcoPure Essentials,
 							you are choosing a brand that cares about your skin and our
@@ -348,21 +385,25 @@
 					id="newsletter-section"
 					class="py-10 bg-gradient-to-b from-secondary-light to-secondary-base text-primary-base"
 				>
-					<div class="eco-container">
+					<div class="eco-container items-center">
 						<h2 class="section-title text-primary-light">
 							Join Our EcoPure Community
 						</h2>
-						<p class="text">
+						<p class="text max-w-screen-md text-center">
 							Stay connected with the latest in natural beauty! Sign up for our
 							newsletter to receive exclusive discounts, expert skincare tips,
 							and be the first to know about our new product launches. Together,
 							let's embrace a more natural, sustainable lifestyle.
 						</p>
-						<form action="" id="newsletter-form" class="flex flex-col gap-4">
+						<form
+							action=""
+							id="newsletter-form"
+							class="flex flex-col items-center gap-4 w-full md:max-w-screen-md md:flex-row"
+						>
 							<input
 								type="text"
 								name="subscriber-email"
-								class="w-full py-1 px-2 rounded-sm border border-accent-dark placeholder:italic placeholder:text-accent-base/50"
+								class="w-full py-1 px-2 rounded-sm border border-accent-dark placeholder:italic placeholder:text-accent-base/50 max-w-screen-xs md:max-w-none md:flex-grow"
 								placeholder="your email"
 							/>
 							<input

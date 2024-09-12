@@ -12,7 +12,30 @@
 		.product-details {
 			@apply flex flex-col gap-3;
 			.product-title {
-				@apply font-playfair-display font-semibold text-accent-light text-2xl;
+				@apply font-playfair-display font-semibold text-accent-light/80 text-2xl;
+			}
+		}
+	}
+
+	@media screen {
+		// TABLET STYLES
+		@media (min-width: 768px) {
+			@apply flex flex-col;
+
+			.product {
+				@apply max-w-none flex-row items-center even:flex-row-reverse;
+
+				.product-image {
+					@apply max-w-80;
+				}
+
+				.product-details {
+					@apply max-w-80;
+
+					.product-title {
+						@apply text-3xl;
+					}
+				}
 			}
 		}
 	}
