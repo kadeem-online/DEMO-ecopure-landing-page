@@ -3,16 +3,28 @@ import SimpleBar from "simplebar";
 import "simplebar/dist/simplebar.min.css";
 import ResizeObserver from "resize-observer-polyfill";
 
+// Lenis
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
+
+// GSAP
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+
 import "./sass/main.scss";
 
 type GlobalVariablesBlueprint = {
 	mobile_navigation_container?: HTMLElement;
 	page_content_simplebar?: SimpleBar;
+	lenis?: Lenis;
 };
 const GLOBALS: GlobalVariablesBlueprint = {};
 
 // Add resize observer polyfill
 window.ResizeObserver = ResizeObserver;
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 function INT_openMobileMenu() {
 	if (GLOBALS.mobile_navigation_container === undefined) {
@@ -73,6 +85,28 @@ function SETUP_mobileMenuCustomScrollbar(): SimpleBar | null {
 	}
 }
 
+function SETUP_pageSmoothScroll(): Lenis | null {
+	try {
+		const lenis = new Lenis({
+			wrapper: GLOBALS.page_content_simplebar?.getScrollElement() || undefined,
+			content: GLOBALS.page_content_simplebar?.getContentElement() || undefined,
+		});
+
+		lenis.on("scroll", ScrollTrigger.update);
+
+		gsap.ticker.add((time: number) => {
+			lenis.raf(time * 1000);
+		});
+
+		gsap.ticker.lagSmoothing(0);
+
+		return lenis;
+	} catch (error) {
+		console.error("FAILED TO SETUP LENIS: ", error);
+		return null;
+	}
+}
+
 function SETUP_pageContentCustomScrollbar(): SimpleBar | null {
 	const page_content = document.getElementById("content-wrapper");
 	if (page_content === null) {
@@ -99,6 +133,9 @@ function onDomContentLoaded() {
 	SETUP_mobileMenuCustomScrollbar();
 	GLOBALS.page_content_simplebar =
 		SETUP_pageContentCustomScrollbar() || undefined;
+
+	// SETUP LENIS
+	GLOBALS.lenis = SETUP_pageSmoothScroll() || undefined;
 
 	return;
 }
