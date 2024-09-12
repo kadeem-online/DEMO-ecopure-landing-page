@@ -26,6 +26,9 @@ window.ResizeObserver = ResizeObserver;
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
+// GSAP match media
+const GSAP_MM = gsap.matchMedia();
+
 function INT_openMobileMenu() {
 	if (GLOBALS.mobile_navigation_container === undefined) {
 		return;
@@ -42,6 +45,85 @@ function INT_closeMobileMenu() {
 
 	const menu = GLOBALS.mobile_navigation_container;
 	menu.ariaExpanded = "false";
+}
+
+function ANIM_productSectionHorizontalSection() {
+	GSAP_MM.add("(min-width: 1024px)", () => {
+		const products_array = gsap.utils.toArray(
+			"#products-section .product-list .product"
+		);
+
+		const scroll_timeline = gsap.timeline({
+			scrollTrigger: {
+				trigger: "#products-section",
+				start: "top top",
+				pin: true,
+				scroller:
+					GLOBALS.page_content_simplebar?.getScrollElement() || undefined,
+				end: "+=3500",
+				scrub: 1,
+			},
+		});
+
+		scroll_timeline.to(products_array, {
+			xPercent: -100 * products_array.length,
+			ease: "none",
+			duration: 5,
+		});
+	});
+}
+
+function ANIM_aboutSectionParallax() {
+	GSAP_MM.add("(min-width: 768px)", () => {
+		const parallax_scroll = gsap.timeline({
+			scrollTrigger: {
+				trigger: "#about-section",
+				start: "top 80%",
+				end: "+=512",
+				scroller:
+					GLOBALS.page_content_simplebar?.getScrollElement() || undefined,
+				scrub: 1,
+			},
+		});
+
+		parallax_scroll.fromTo(
+			"#about-image",
+			{
+				yPercent: 25,
+				scale: 0.9,
+			},
+			{
+				yPercent: 0,
+				scale: 1,
+			}
+		);
+	});
+}
+
+function ANIM_revealFeatureCards() {
+	const cards = gsap.utils.toArray(
+		"#commitment-section .feature-list .feature-card"
+	);
+
+	gsap.fromTo(
+		cards,
+		{
+			opacity: 0,
+			yPercent: 25,
+		},
+		{
+			opacity: 1,
+			yPercent: 0,
+			stagger: 0.25,
+			scrollTrigger: {
+				trigger: `#commitment-section .feature-list`,
+				start: "top center",
+				once: true,
+				scroller:
+					GLOBALS.page_content_simplebar?.getScrollElement() || undefined,
+			},
+		}
+	);
 }
 
 function SETUP_mobileMenuOpenListeners() {
@@ -219,4 +301,12 @@ function onDomContentLoaded() {
 	return;
 }
 
+function onPageLoaded() {
+	// GSAP
+	ANIM_aboutSectionParallax();
+	ANIM_productSectionHorizontalSection();
+	ANIM_revealFeatureCards();
+}
+
 window.addEventListener("DOMContentLoaded", onDomContentLoaded);
+window.addEventListener("load", onPageLoaded);
