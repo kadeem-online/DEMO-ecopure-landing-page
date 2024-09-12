@@ -11,17 +11,382 @@
 			rel="stylesheet"
 		/>
 	</head>
-	<body>
-		<div
-			id="content-wrapper"
-			class="screen h-dvh min-h-dvh bg-primary-base text-secondary-base text-base"
-		>
-			<main class="h-full">
-				<section id="hero-section">
-					<div class="eco-container">
-						<h1 class="font-playfair-display font-bold text-3xl">Hero</h1>
+	<body
+		class="bg-primary-base text-secondary-base text-base font-montserrat font-medium"
+	>
+		<div id="content-wrapper" class="screen h-dvh min-h-dvh">
+			<main class="min-h-full">
+				<header
+					id="page-navbar"
+					class="sticky top-0 left-0 z-[100] bg-gradient-to-b from-primary-light to-primary-base py-5 border-b border-b-primary-dark shadow"
+				>
+					<div class="eco-container flex flex-row justify-between items-center">
+						<a href="#">
+							<div class="logo-image-container max-w-32 max-h-10">
+								<img
+									src="/logo.png"
+									alt=""
+									srcset=""
+									width="513"
+									height="216"
+									class="block"
+								/>
+							</div>
+						</a>
+
+						<button data-open-menu>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								class="size-8"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+									clip-rule="evenodd"
+								/>
+							</svg>
+						</button>
+					</div>
+				</header>
+
+				<section id="hero-section" class="relative">
+					<div
+						id="hero-section-foreground"
+						class="eco-container relative z-50 py-20"
+					>
+						<h1 class="font-playfair-display font-bold text-4xl">
+							Rediscover Natural Beauty with EcoPure Essentials
+						</h1>
+						<p class="sub-headline text-lg">
+							Pure ingredients, sustainable practices, and effective
+							skincare—because your beauty routine should be as natural as you
+							are.
+						</p>
+						<a
+							href="#products"
+							class="hero-cta py-1 px-5 bg-accent-base w-fit border border-primary-dark hover:bg-accent-dark"
+						>
+							<span class="label font-semibold">Explore Our Products</span>
+						</a>
+					</div>
+					<div
+						id="hero-section-background"
+						class="absolute top-0 left-0 w-full h-full overflow-hidden"
+					>
+						<div
+							class="background-overlay absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-b from-primary-base/50 from-10% to-primary-base"
+						></div>
+						<img
+							src="/hero-background.jpg"
+							alt=""
+							srcset=""
+							width="1920"
+							height="2886"
+							class="background-image w-full h-full object-cover object-[center_40%]"
+						/>
 					</div>
 				</section>
+
+				<section
+					id="about-section"
+					class="py-12 bg-gradient-to-b from-secondary-light to-secondary-dark text-primary-base"
+				>
+					<div class="eco-container">
+						<h2 class="section-title text-primary-light">
+							Our Journey to Natural Skincare
+						</h2>
+						<p class="text">
+							At EcoPure Essentials, we believe that true beauty comes from the
+							harmony of nature and self-care. Our journey began with a simple
+							question: Why should skincare be complicated? Inspired by the
+							purity of nature, our founders set out to create a line of
+							skincare products that are not only effective but also kind to the
+							planet.
+						</p>
+						<p class="text">
+							From day one, we've been committed to using only the finest
+							natural ingredients. Our formulas are carefully crafted to nourish
+							and protect your skin, while our packaging reflects our dedication
+							to sustainability. We are more than just a skincare brand—we are a
+							movement towards mindful beauty. Join us on this journey to
+							rediscover what it means to feel naturally beautiful.
+						</p>
+					</div>
+				</section>
+
+				<section
+					id="products-section"
+					class="py-12 bg-gradient-to-b from-primary-light to-primary-base bg-fixed"
+				>
+					<div class="eco-container gap-6">
+						<h2 class="section-title text-center">Our Products</h2>
+						<ul class="product-list">
+							<li class="product">
+								<img
+									src="/product_01.jpg"
+									alt=""
+									srcset=""
+									class="product-image"
+									width="1280"
+									height="1920"
+								/>
+								<div class="product-details">
+									<h3 class="product-title">
+										EcoPure Radiance Hydrating Cream
+									</h3>
+									<p class="product-description">
+										This luxurious hydrating cream is infused with organic aloe
+										vera, shea butter, and green tea extracts. Designed to
+										deeply nourish and restore your skin’s natural glow, it
+										helps lock in moisture while promoting elasticity. The
+										lightweight, non-greasy formula absorbs quickly, making it
+										perfect for daily use. Free from parabens and sulfates, this
+										cream is ideal for sensitive and environmentally conscious
+										skin.
+									</p>
+								</div>
+							</li>
+							<li class="product">
+								<img
+									src="/product_02.jpg"
+									alt=""
+									srcset=""
+									class="product-image"
+									width="1280"
+									height="1920"
+								/>
+								<div class="product-details">
+									<h3 class="product-title">EcoPure Revive Face Mist</h3>
+									<p class="product-description">
+										Refresh and revitalize your skin with the EcoPure Revive
+										Face Mist, a calming blend of rose water, witch hazel, and
+										chamomile. This lightweight spray provides instant hydration
+										and soothes irritation, leaving your skin dewy and refreshed
+										throughout the day. Perfect for a midday pick-me-up or as a
+										pre-makeup base. Carry it with you for an eco-friendly,
+										natural burst of hydration whenever you need it.
+									</p>
+								</div>
+							</li>
+							<li class="product">
+								<img
+									src="/product_03.jpg"
+									alt=""
+									srcset=""
+									class="product-image"
+									width="1280"
+									height="1920"
+								/>
+								<div class="product-details">
+									<h3 class="product-title">
+										EcoPure Refresh Herbal Hair Mist
+									</h3>
+									<p class="product-description">
+										Transform your hair care routine with the EcoPure Refresh
+										Herbal Hair Mist, an invigorating blend of eucalyptus,
+										lavender, and rosemary. This spray helps detangle, hydrate,
+										and freshen hair between washes without weighing it down.
+										Whether you need a morning boost or post-workout refresh,
+										this lightweight, plant-based formula brings life back to
+										your locks, all while being kind to the planet.
+									</p>
+								</div>
+							</li>
+							<li class="product">
+								<img
+									src="/product_04.jpg"
+									alt=""
+									srcset=""
+									class="product-image"
+									width="1280"
+									height="1920"
+								/>
+								<div class="product-details">
+									<h3 class="product-title">EcoPure Soothing Skin Balm</h3>
+									<p class="product-description">
+										Soothe dry, irritated skin with the EcoPure Soothing Skin
+										Balm, crafted with nourishing ingredients like calendula,
+										chamomile, and vitamin E. This gentle ointment works wonders
+										for dry patches, chapped lips, and rough areas, offering
+										deep hydration and protection. Perfect for sensitive skin,
+										its non-toxic, fragrance-free formula is free from harmful
+										chemicals, making it your go-to natural remedy for everyday
+										skin issues.
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="commitment-section" class="py-12 bg-primary-base">
+					<div class="eco-container">
+						<h2 class="section-title text-accent-light">
+							Committed to a Greener Future
+						</h2>
+
+						<p class="text">
+							At EcoPure Essentials, sustainability is at the heart of
+							everything we do. We believe that true beauty should never come at
+							the expense of our planet. That's why we are dedicated to
+							eco-friendly practices in every step of our process:
+						</p>
+
+						<ul class="feature-list">
+							<li class="feature-card">
+								<img
+									src="/cruelty_free_icon.svg"
+									alt=""
+									srcset=""
+									class="feature-icon"
+								/>
+								<h3 class="feature-title">Cruelty-Free Testing</h3>
+								<p class="feature-description">
+									Our products are never tested on animals, and we ensure that
+									every ingredient is ethically sourced.
+								</p>
+							</li>
+							<li class="feature-card">
+								<img
+									src="/recyclable_packaging_icon.svg"
+									alt=""
+									srcset=""
+									class="feature-icon"
+								/>
+								<h3 class="feature-title">Recyclable Packaging</h3>
+								<p class="feature-description">
+									We use eco-conscious packaging materials that are either
+									biodegradable or recyclable, reducing our environmental
+									footprint.
+								</p>
+							</li>
+							<li class="feature-card">
+								<img
+									src="/natural_icon.svg"
+									alt=""
+									srcset=""
+									class="feature-icon"
+								/>
+								<h3 class="feature-title">Natural Sourcing</h3>
+								<p class="feature-description">
+									Our ingredients are derived from nature, free from harmful
+									chemicals, and sustainably harvested to protect the earth's
+									delicate ecosystems.
+								</p>
+							</li>
+						</ul>
+
+						<p class="text">
+							We are constantly striving to improve our practices and set new
+							standards in the beauty industry. By choosing EcoPure Essentials,
+							you are choosing a brand that cares about your skin and our
+							planet.
+						</p>
+					</div>
+				</section>
+
+				<section
+					id="newletter-section"
+					class="py-10 bg-gradient-to-b from-secondary-light to-secondary-base text-primary-base"
+				>
+					<div class="eco-container">
+						<h2 class="section-title text-primary-light">
+							Join Our EcoPure Community
+						</h2>
+						<p class="text">
+							Stay connected with the latest in natural beauty! Sign up for our
+							newsletter to receive exclusive discounts, expert skincare tips,
+							and be the first to know about our new product launches. Together,
+							let's embrace a more natural, sustainable lifestyle.
+						</p>
+						<form action="" id="newsletter-form" class="flex flex-col gap-4">
+							<input
+								type="text"
+								name="subscriber-email"
+								class="w-full py-1 px-2 rounded-sm border border-accent-dark placeholder:italic placeholder:text-accent-base/50"
+								placeholder="your email"
+							/>
+							<input
+								type="submit"
+								value="Sign Up Now"
+								class="w-fit py-1 px-5 bg-accent-base font-bold text-secondary-light rounded-sm hover:bg-accent-dark"
+							/>
+						</form>
+					</div>
+				</section>
+
+				<footer id="page-footer" class="py-10">
+					<div class="eco-container flex flex-col gap-5">
+						<div class="content-group">
+							<div class="branding-block content-block">
+								<a href="#">
+									<div class="logo-image-container max-w-32 max-h-10">
+										<img
+											src="/logo.png"
+											alt=""
+											srcset=""
+											width="513"
+											height="216"
+											class="block"
+										/>
+									</div>
+								</a>
+								<div class="tagline">
+									Rediscover Natural Beauty with EcoPure Essentials.
+								</div>
+							</div>
+							<div class="contact-block content-block">
+								<p class="heading">Contact</p>
+								<ul class="information-list">
+									<li>
+										<p class="address">
+											1234 Mombasa Road, 5th Floor ABCD Towers, Nairobi, Kenya
+											P.O. Box 56789-00100
+										</p>
+									</li>
+									<li>
+										<p class="email">hello@echopure.demo</p>
+									</li>
+									<li>
+										<p class="phone">+254 708 634 903</p>
+									</li>
+								</ul>
+							</div>
+							<div class="footer-menu-block content-block">
+								<p class="heading">Menu</p>
+								<ul class="footer-menu-list">
+									<li><a href="#hero-section">Home</a></li>
+									<li><a href="#about-section">About</a></li>
+									<li><a href="#products-section">Products</a></li>
+									<li><a href="#commitment-section">Commitment</a></li>
+									<li><a href="#newsletter">Newsletter</a></li>
+								</ul>
+							</div>
+							<div class="socials-menu-block content-block">
+								<div class="heading">Quick Links</div>
+								<ul class="socials-list">
+									<li><a href="#">TikTok</a></li>
+									<li><a href="#">Instagram</a></li>
+									<li><a href="#">Jiji</a></li>
+									<li><a href="#">Jumia</a></li>
+								</ul>
+							</div>
+						</div>
+						<hr class="border-t-accent-light/50" />
+						<div class="copyright-group">
+							<p class="text-sm text-accent-light/75 text-center">
+								<span>&copy; 2024, EcoPure. Designed by</span>
+								<a
+									href="https://kadeem.online"
+									class="underline underline-offset-4"
+									>Kadeem</a
+								>
+							</p>
+						</div>
+					</div>
+				</footer>
 			</main>
 		</div>
 		<script type="module" src="/src/main.ts"></script>
