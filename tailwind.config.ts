@@ -5,6 +5,9 @@ const config: Config = {
 	content: ["./index.html"],
 	theme: {
 		extend: {
+			boxShadow: {
+				bg: "0px 0px 5px 0px rgb(0,0,0,0.5)",
+			},
 			screens: {
 				xs: "480px",
 			},
