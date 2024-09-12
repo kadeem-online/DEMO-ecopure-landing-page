@@ -4,7 +4,7 @@ import "simplebar/dist/simplebar.min.css";
 import ResizeObserver from "resize-observer-polyfill";
 
 // Lenis
-import Lenis, { EasingFunction } from "lenis";
+import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
 // GSAP
@@ -129,8 +129,8 @@ function ANIM_revealFeatureCards() {
 function SETUP_mobileMenuOpenListeners() {
 	const listeners: NodeList = document.querySelectorAll("[data-open-menu]");
 
-	listeners.forEach((value, key, parent) => {
-		value.addEventListener("click", (event) => {
+	listeners.forEach((value) => {
+		value.addEventListener("click", () => {
 			INT_openMobileMenu();
 		});
 	});
@@ -141,8 +141,8 @@ function SETUP_mobileMenuOpenListeners() {
 function SETUP_mobileMenuCloseListeners() {
 	const listeners: NodeList = document.querySelectorAll("[data-close-menu]");
 
-	listeners.forEach((value, key, parent) => {
-		value.addEventListener("click", (event) => {
+	listeners.forEach((value) => {
+		value.addEventListener("click", () => {
 			INT_closeMobileMenu();
 		});
 	});
@@ -242,7 +242,7 @@ function SETUP_mobileMenuLinkClick() {
 		"nav#mobile-navigation .nav-list .nav-link"
 	);
 
-	links.forEach((link, key, parent) => {
+	links.forEach((link) => {
 		link.addEventListener("click", (event) => {
 			event.preventDefault();
 			HANDLER_onPageLinkNavigation(link);
@@ -256,7 +256,7 @@ function SETUP_footerMenuLinkClick() {
 		"footer#page-footer .footer-menu-list .nav-link"
 	);
 
-	links.forEach((link, key, parent) => {
+	links.forEach((link) => {
 		link.addEventListener("click", (event) => {
 			event.preventDefault();
 			HANDLER_onPageLinkNavigation(link);
