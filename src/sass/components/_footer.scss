@@ -52,5 +52,27 @@
 				}
 			}
 		}
+
+		// Tablet Styles
+		@media (min-width: 1024px) {
+			.eco-container {
+				.content-group {
+					@apply grid-cols-4;
+
+					.branding-block {
+						@apply lg:col-start-1 lg:row-start-1;
+					}
+					.contact-block {
+						@apply lg:col-start-2 lg:row-start-1;
+					}
+					.footer-menu-block {
+						@apply lg:col-start-3 lg:row-start-1;
+					}
+					.socials-menu-block {
+						@apply lg:col-start-4 lg:row-start-1;
+					}
+				}
+			}
+		}
 	}
 }

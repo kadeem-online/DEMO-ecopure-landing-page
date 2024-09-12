@@ -38,5 +38,14 @@
 				}
 			}
 		}
+
+		// DESKTOP STYLES
+		@media (min-width: 1024px) {
+			@apply flex-row justify-around w-[250vw];
+
+			.product {
+				@apply even:flex-row;
+			}
+		}
 	}
 }
