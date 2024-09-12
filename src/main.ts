@@ -7,6 +7,7 @@ import "./sass/main.scss";
 
 type GlobalVariablesBlueprint = {
 	mobile_navigation_container?: HTMLElement;
+	page_content_simplebar?: SimpleBar;
 };
 const GLOBALS: GlobalVariablesBlueprint = {};
 
@@ -72,6 +73,20 @@ function SETUP_mobileMenuCustomScrollbar(): SimpleBar | null {
 	}
 }
 
+function SETUP_pageContentCustomScrollbar(): SimpleBar | null {
+	const page_content = document.getElementById("content-wrapper");
+	if (page_content === null) {
+		return null;
+	}
+
+	try {
+		const simplebar = new SimpleBar(page_content as HTMLElement, {});
+		return simplebar;
+	} catch (error) {
+		return null;
+	}
+}
+
 function onDomContentLoaded() {
 	GLOBALS.mobile_navigation_container =
 		document.getElementById("mobile-navigation-menu") || undefined;
@@ -82,6 +97,8 @@ function onDomContentLoaded() {
 
 	// SETUP CUSTOM SCROLLBARS
 	SETUP_mobileMenuCustomScrollbar();
+	GLOBALS.page_content_simplebar =
+		SETUP_pageContentCustomScrollbar() || undefined;
 
 	return;
 }
