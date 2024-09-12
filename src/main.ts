@@ -277,6 +277,24 @@ function SETUP_heroCTALinkClick() {
 	});
 }
 
+function UTIL_autoScroll() {
+	if (GLOBALS.lenis) {
+		GLOBALS.lenis.scrollTo("bottom", {
+			duration: 25,
+			easing: (time: number) => {
+				return time;
+			},
+		});
+	}
+}
+
+function UTIL_comboKeyMonitor(event: KeyboardEvent) {
+	// Check for Ctrl + Alt + J
+	if (event.ctrlKey && event.altKey && event.key === "j") {
+		UTIL_autoScroll();
+	}
+}
+
 function onDomContentLoaded() {
 	GLOBALS.mobile_navigation_container =
 		document.getElementById("mobile-navigation-menu") || undefined;
@@ -306,6 +324,9 @@ function onPageLoaded() {
 	ANIM_aboutSectionParallax();
 	ANIM_productSectionHorizontalSection();
 	ANIM_revealFeatureCards();
+
+	// ADD event listener for the keyboard
+	window.addEventListener("keydown", UTIL_comboKeyMonitor);
 }
 
 window.addEventListener("DOMContentLoaded", onDomContentLoaded);
