@@ -212,7 +212,7 @@ function SETUP_navbarScrollListener() {
 	const scroller = GLOBALS.page_content_simplebar?.getScrollElement() || window;
 	const throttledHandler = throttle(UTIL_navbarScrollHandler, 150, {});
 
-	scroller.addEventListener("scroll", (event: Event) => {
+	scroller.addEventListener("scroll", () => {
 		throttledHandler(scroller);
 	});
 }
