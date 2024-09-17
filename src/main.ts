@@ -13,12 +13,17 @@ import gsap from "gsap";
 
 import "./sass/main.scss";
 
+import { throttle } from "lodash";
+
 type GlobalVariablesBlueprint = {
 	mobile_navigation_container?: HTMLElement;
 	page_content_simplebar?: SimpleBar;
 	lenis?: Lenis;
+	lastScrollOffset: number;
 };
-const GLOBALS: GlobalVariablesBlueprint = {};
+const GLOBALS: GlobalVariablesBlueprint = {
+	lastScrollOffset: 0,
+};
 
 // Add resize observer polyfill
 window.ResizeObserver = ResizeObserver;
@@ -203,6 +208,15 @@ function SETUP_pageContentCustomScrollbar(): SimpleBar | null {
 	}
 }
 
+function SETUP_navbarScrollListener() {
+	const scroller = GLOBALS.page_content_simplebar?.getScrollElement() || window;
+	const throttledHandler = throttle(UTIL_navbarScrollHandler, 150, {});
+
+	scroller.addEventListener("scroll", (event: Event) => {
+		throttledHandler(scroller);
+	});
+}
+
 function INT_scrollToSection(target: HTMLElement) {
 	try {
 		target.scrollIntoView({
@@ -295,6 +309,33 @@ function UTIL_comboKeyMonitor(event: KeyboardEvent) {
 	}
 }
 
+function UTIL_navbarScrollHandler(scroller: HTMLElement | Window) {
+	try {
+		const scroll_y_offset =
+			scroller instanceof HTMLElement
+				? scroller.scrollTop
+				: scroller.scrollY || document.documentElement.scrollTop;
+
+		const navbar = document.getElementById("page-navbar");
+		if (navbar === null) {
+			return;
+		}
+
+		if (scroll_y_offset > GLOBALS.lastScrollOffset) {
+			navbar.classList.add("--down");
+			navbar.classList.remove("--up");
+		} else {
+			navbar.classList.add("--up");
+			navbar.classList.remove("--down");
+		}
+
+		GLOBALS.lastScrollOffset = scroll_y_offset;
+		return;
+	} catch (error) {
+		return;
+	}
+}
+
 function onDomContentLoaded() {
 	GLOBALS.mobile_navigation_container =
 		document.getElementById("mobile-navigation-menu") || undefined;
@@ -315,6 +356,9 @@ function onDomContentLoaded() {
 	SETUP_heroCTALinkClick();
 	SETUP_mobileMenuLinkClick();
 	SETUP_footerMenuLinkClick();
+
+	// SETUP NAVBAR SCROLL
+	SETUP_navbarScrollListener();
 
 	return;
 }
